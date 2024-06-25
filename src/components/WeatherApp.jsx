@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { WiHumidity } from "react-icons/wi";
 
 import drizzle_icon from "../Assets/drizzle.png";
 import rain_icon from "../Assets/rain.png";
 import snow_icon from "../Assets/snow.png";
-import wind_icon from "../Assets/wind.png";
+
 import clear_icon from "../Assets/clear.png";
-import humidity_icon from "../Assets/humidity.png";
+
 import search_icon from "../Assets/search.png";
 import cloud_icon from "../Assets/cloud.png";
 import clear from "../resources/clear.avif";
@@ -15,6 +16,7 @@ import cloud from "../resources/cloud.jpg";
 import drizzle from "../resources/drizzle.jpg";
 import rain from "../resources/rain.jpg";
 import snow from "../resources/snow.jpeg";
+import { GiWindSlap } from "react-icons/gi";
 
 const WeatherApp = () => {
   let apiKey = "a4eec7822601e6b81ee7522bec958a0c";
@@ -96,13 +98,19 @@ const WeatherApp = () => {
       <ToastContainer />
       <div className="bg-white bg-opacity-20 backdrop-blur-md mx-auto p-4 shadow-lg flex flex-col items-center justify-center w-[400px] h-[600px] rounded-lg mt-[-10px] text-gray-800">
         <div className="top-bar flex justify-between items-center w-full mb-6">
-          <input
-            type="text"
-            className="cityInput border border-gray-300 rounded-md py-2 px-4 w-3/4"
-            placeholder="Search"
-          />
-          <div className="search-icon ml-2 cursor-pointer" onClick={search}>
-            <img src={search_icon} alt="search icon" className="w-6 h-6" />
+          <div className="flex items-center w-full">
+            <input
+              type="text"
+              className="cityInput border border-gray-300 rounded-l-md py-2 px-4 w-full"
+              placeholder="Search"
+              style={{ backgroundColor: "#f0f0f0" }}
+            />
+            <div
+              className="search-icon cursor-pointer bg-gray-300 p-2 rounded-r-md ml-2"
+              onClick={search}
+            >
+              <img src={search_icon} alt="search icon" className="w-6 h-6" />
+            </div>
           </div>
         </div>
 
@@ -112,15 +120,19 @@ const WeatherApp = () => {
           <div className="weather-location text-xl mt-2">London</div>
 
           <div className="data-container flex justify-around w-full mt-8">
-            <div className="element flex items-center">
-              <img src={humidity_icon} alt="humidity icon" className="w-8 h-8" />
+            <div className="element flex items-center mr-8">
+              {/* <img src={humidity_icon} alt="humidity icon" className="w-8 h-8" /> */}
+              <WiHumidity className="w-8 h-8"/>
+             
               <div className="data ml-2">
                 <div className="humidity-percentage font-bold text-lg">64%</div>
                 <div className="text-xs text-gray-700">Humidity</div>
               </div>
             </div>
-            <div className="element flex items-center">
-              <img src={wind_icon} alt="wind icon" className="w-8 h-8" />
+            <div className="element flex items-center ml-8">
+              {/* <img src={wind_icon} alt="wind icon" className="w-8 h-8" /> */}
+
+              <GiWindSlap className="w-8 h-8"/>
               <div className="data ml-2">
                 <div className="wind-rate font-bold text-lg">18 Km/h</div>
                 <div className="text-xs text-gray-700">Wind Speed</div>
