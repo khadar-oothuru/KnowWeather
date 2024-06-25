@@ -89,40 +89,41 @@ const WeatherApp = () => {
   };
 
   return (
-    <div className="bg-cover bg-no-repeat bg-center h-95vh w-98vw" style={{ backgroundImage: `url(${Background})` }}>
-
+    <div
+      className="bg-cover bg-no-repeat bg-center min-h-screen w-full flex flex-col justify-center items-center"
+      style={{ backgroundImage: `url(${Background})` }}
+    >
       <ToastContainer />
-      <div className="container mx-auto px-4 sm:px-6 md:px-8">
-        <div className="bg-white bg-opacity-90 rounded-lg p-6 shadow-lg">
-          <div className="top-bar flex justify-between items-center">
-            <input type="text" className="cityInput border border-gray-300 rounded-md py-2 px-4 w-3/4 sm:w-2/4 md:w-1/4" placeholder="Search" />
-            <div
-              className="search-icon ml-2 cursor-pointer"
-              onClick={search}
-            >
-              <img src={search_icon} alt="" />
-            </div>
+      <div className="bg-white bg-opacity-20 backdrop-blur-md mx-auto p-4 shadow-lg flex flex-col items-center justify-center w-[400px] h-[600px] rounded-lg mt-[-10px] text-gray-800">
+        <div className="top-bar flex justify-between items-center w-full mb-6">
+          <input
+            type="text"
+            className="cityInput border border-gray-300 rounded-md py-2 px-4 w-3/4"
+            placeholder="Search"
+          />
+          <div className="search-icon ml-2 cursor-pointer" onClick={search}>
+            <img src={search_icon} alt="search icon" className="w-6 h-6" />
           </div>
+        </div>
 
-          <div className="flex flex-col items-center mt-6">
-            <img src={wicon} alt="weather icon" className="w-24 h-24" />
-            <div className="weather-temp text-4xl font-bold mt-4">24°C</div>
-            <div className="weather-location text-xl mt-2">London</div>
+        <div className="flex flex-col items-center mt-4">
+          <img src={wicon} alt="weather icon" className="w-24 h-24" />
+          <div className="weather-temp text-4xl font-bold mt-4">24°C</div>
+          <div className="weather-location text-xl mt-2">London</div>
 
-            <div className="data-container flex justify-around w-full sm:w-3/4 mt-8">
-              <div className="element flex items-center">
-                <img src={humidity_icon} alt="humidity icon" className="w-8 h-8" />
-                <div className="data ml-2">
-                  <div className="humidity-percentage font-bold">64%</div>
-                  <div className="text-xs">Humidity</div>
-                </div>
+          <div className="data-container flex justify-around w-full mt-8">
+            <div className="element flex items-center">
+              <img src={humidity_icon} alt="humidity icon" className="w-8 h-8" />
+              <div className="data ml-2">
+                <div className="humidity-percentage font-bold text-lg">64%</div>
+                <div className="text-xs text-gray-700">Humidity</div>
               </div>
-              <div className="element flex items-center">
-                <img src={wind_icon} alt="wind icon" className="w-8 h-8" />
-                <div className="data ml-2">
-                  <div className="wind-rate font-bold">18 Km/h</div>
-                  <div className="text-xs">Wind Speed</div>
-                </div>
+            </div>
+            <div className="element flex items-center">
+              <img src={wind_icon} alt="wind icon" className="w-8 h-8" />
+              <div className="data ml-2">
+                <div className="wind-rate font-bold text-lg">18 Km/h</div>
+                <div className="text-xs text-gray-700">Wind Speed</div>
               </div>
             </div>
           </div>
